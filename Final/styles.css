@@ -8,6 +8,86 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
 }
+
+.site-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 30px;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav ul li {
+    display: inline;
+}
+
+.footer-nav ul li a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+    color: #ff9900;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #c2c2c2;
+    color: rgb(255, 255, 255);
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav ul li {
+    display: inline;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #ff9900;
+}
+
 .container-principal {
     max-width: 1200px;
     margin: 0 auto;
@@ -62,10 +142,17 @@ body {
     background-color: #0407b3;
 }
 
-/* Seção de newsletter */
+.email-newsletter button { 
+    display: inline-block; /* Permite que o botão seja centralizado */
+    margin-top: 10px; /* Espaço entre o input e o botão */
+    padding: 10px 20px; /* Ajusta o tamanho do botão */
+}
+
 .email-newsletter {
-    text-align: center;
-    margin: 40px 0;
+    text-align: center; /* Centraliza o texto dentro da seção */
+    margin: 40px auto; /* Alinha a seção ao centro horizontalmente */
+    width: 100%; /* Permite que a seção ocupe toda a largura disponível */
+    max-width: 400px; /* Limita a largura máxima da seção */
 }
 
 .email-newsletter h2 {
