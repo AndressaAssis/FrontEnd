@@ -43,24 +43,6 @@ body {
     color: #ff9900;
 }
 
-.cabecalho{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #c2c2c2;
-    color: rgb(255, 255, 255);
-}
-
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #ffffff;
-    color: rgb(255, 255, 255);
-}
-
 .logo img {
     height: 50px;
 }
@@ -102,13 +84,17 @@ body {
     justify-content: center;
     height: 80vh;
     text-align: center;
+    opacity: 0; /* Começa invisível */
+    animation: fadeIn 4s forwards; /* Animação de entrada */
 }
 
 .titulo-loja {
     font-size: 3rem;
     text-transform: lowercase;
     color: #0c0c0c;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 5px rgb(1, 23, 145);
+    animation: slideIn 2s forwards; /* Animação de deslizamento */
+    animation-delay: 0.3s; /* Espera antes da animação */
 }
 
 /* Coloca a primeira letra em maiúscula e diferente */
@@ -123,24 +109,55 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+    animation: bounceIn 1s; /* Animação de "bounce" */
 }
 
-.btn-entrar {
+.icon  {
     margin-top: 20px;
     padding: 15px 30px;
-    font-size: 1.2rem;
-    color: white;
-    background-color: #0a0a0a;
-    border: none;
-    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+	position: relative;
+	display: inline-block;
+	width: 290px;
+	height: 80px;
+	border-radius: 20px;
+	overflow: hidden;
 }
 
-.btn-entrar:hover {
-    background-color: #0407b3;
-}
+.icon::before, .icon::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	transition: all 0.25s ease;
+	border-radius: 30px;
+  }
+
+  
+  .icon-fill::before {
+	transition-duration: 0.5s;
+	box-shadow: inset 0 0 0 1px #0228cf;
+  }
+  .icon-fill:hover::before {
+	box-shadow: inset 0 0 0 60px #0228cf;
+  }
+
+  .text {
+    position: absolute;
+    top: 0; /* Muda para 0 para ocupar todo o espaço */
+    left: 0; /* Muda para 0 para ocupar todo o espaço */
+    width: 100%; /* Faz o texto ocupar a largura total do bloco */
+    height: 100%; /* Faz o texto ocupar a altura total do bloco */
+    display: flex; /* Usado para centralizar o texto */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    color: rgb(0, 0, 0); /* Cor do texto */
+    font-size: 25px; /* Tamanho da fonte */
+    pointer-events: none; /* Impede a interação com o texto */
+    font-family:Arial, Helvetica, sans-serif
+  }
 
 .email-newsletter button { 
     display: inline-block; /* Permite que o botão seja centralizado */
@@ -153,6 +170,9 @@ body {
     margin: 40px auto; /* Alinha a seção ao centro horizontalmente */
     width: 100%; /* Permite que a seção ocupe toda a largura disponível */
     max-width: 400px; /* Limita a largura máxima da seção */
+    opacity: 0; /* Começa invisível */
+    animation: fadeIn 1s forwards; /* Animação de entrada */
+    animation-delay: 0.5s; /* Espera antes da animação */
 }
 
 /* Seção de newsletter */
@@ -195,6 +215,7 @@ body {
 
 .btn-newsletter:hover {
     background-color: #0407b3;
+    transform: scale(1.05); /* Aumenta um pouco ao passar o mouse */
 }
 
 .email-error {
@@ -209,9 +230,12 @@ body {
 }
 
 .promocoes h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #030303;
+    color: #000000;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgb(0, 32, 214); /* Adiciona sombra ao texto */
+    animation: slideIn 1s forwards; /* Animação de deslizamento */
 }
 
 .promo-container {
@@ -245,12 +269,23 @@ body {
 .promo h3 {
     margin: 15px 0 10px;
     font-size: 1.5rem;
-    color: #333;
+    color: #070000;
 }
 
-.promo p {
+.preco {
     font-size: 1.2rem;
-    color:  #0407b3;
+    margin: 10px 0;
+}
+
+.preco-destaque {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1304e2;
+}
+
+.desconto {
+    font-size: 1.5rem;
+    color: #e23404;
 }
 
 header {
@@ -267,21 +302,6 @@ header {
     border-radius: 50%;
 }
 
-nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    font-size: 18px;
-    color: #333;
-}
-
-nav a:hover {
-    color: #0a0a0a;
-}
 .header-right {
     display: flex;
     align-items: center;
@@ -526,4 +546,36 @@ footer {
 
 footer img {
     width: 500px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
