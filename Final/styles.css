@@ -579,3 +579,17 @@ footer img {
         transform: scale(1);
     }
 }
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+}
+nav a:hover {
+    color: #0a0a0a;
+}
