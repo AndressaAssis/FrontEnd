@@ -33,19 +33,23 @@ function validarFormulario() {
     // Se todos os campos forem válidos
     if (valid) {
         document.getElementById('mensagem-sucesso').style.display = 'block';
+<<<<<<< HEAD
         return false; 
+=======
+        return false; // Impede o envio real do formulário
+>>>>>>> f83f220bfd5c4d2ca8037a2f54de65855f712c50
     } else {
         document.getElementById('mensagem-erro').style.display = 'block';
-        return false; 
+        return false; // Impede o envio real do formulário
     }
 }
 
-function validarNewsletter() {
-    const email = document.getElementById('email').value.trim();
-    const emailPattern = /^[^ ]+@[^ ]+.[a-z]{2,3}$/;
+    function validarNewsletter() {
+        const email = document.getElementById('email').value.trim();
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    // Reseta a mensagem de sucesso
-    document.getElementById('mensagem-sucesso').style.display = 'none';
+        // Reseta a mensagem de sucesso
+        document.getElementById('mensagem-sucesso').style.display = 'none';
 
     // Valida o email
     if (email === "") {
@@ -59,52 +63,52 @@ function validarNewsletter() {
         document.getElementById('mensagem-sucesso').style.display = 'block'; // Exibe mensagem de sucesso
         return false; // Impede o envio real do formulário (para testes)
     }
-}
 
-let carrinho = [];
-let quantidadeNoCarrinho = 0;
 
-// Função para abrir o modal com os detalhes do produto
-function abrirModal(id, titulo, imagem, descricao) {
-    document.getElementById('modal-img').src = imagem;
-    document.getElementById('modal-titulo').innerText = titulo;
-    document.getElementById('modal-descricao').innerText = descricao;
+    let carrinho = [];
+    let quantidadeNoCarrinho = 0;
 
-    // Adiciona ao carrinho ao clicar no botão
-    document.getElementById('adicionar-carrinho').onclick = function() {
-        adicionarAoCarrinho(id, titulo);
-    };
+    // Função para abrir o modal com os detalhes do produto
+    function abrirModal(id, titulo, imagem, descricao) {
+        document.getElementById('modal-img').src = imagem;
+        document.getElementById('modal-titulo').innerText = titulo;
+        document.getElementById('modal-descricao').innerText = descricao;
 
-    document.getElementById('modal').style.display = 'flex';
-}
+        // Adiciona ao carrinho ao clicar no botão
+        document.getElementById('adicionar-carrinho').onclick = function() {
+            adicionarAoCarrinho(id, titulo);
+        };
 
-// Função para fechar o modal
-function fecharModal() {
-    document.getElementById('modal').style.display = 'none';
-}
-
-// Função para adicionar o produto ao carrinho
-function adicionarAoCarrinho(id, titulo) {
-    const quantidade = parseInt(document.getElementById('quantidade').value);
-
-    // Verifica se o produto já está no carrinho
-    const produtoExistente = carrinho.find(produto => produto.id === id);
-
-    if (produtoExistente) {
-        produtoExistente.quantidade += quantidade;
-    } else {
-        carrinho.push({ id, titulo, quantidade });
+        document.getElementById('modal').style.display = 'flex';
     }
 
-    atualizarBadge(quantidade);
+    // Função para fechar o modal
+    function fecharModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
 
-    alert(`${titulo} foi adicionado ao carrinho com sucesso!`);
-    fecharModal();
-}
+    // Função para adicionar o produto ao carrinho
+    function adicionarAoCarrinho(id, titulo) {
+        const quantidade = parseInt(document.getElementById('quantidade').value);
 
-// Função para atualizar a badge com a quantidade total de itens no carrinho
-function atualizarBadge(quantidadeAdicionada) {
-    quantidadeNoCarrinho += quantidadeAdicionada; // Incrementa a quantidade total
-    document.getElementById('badge').textContent = quantidadeNoCarrinho; // Atualiza a badge
-};
+        // Verifica se o produto já está no carrinho
+        const produtoExistente = carrinho.find(produto => produto.id === id);
 
+        if (produtoExistente) {
+            produtoExistente.quantidade += quantidade;
+        } else {
+            carrinho.push({ id, titulo, quantidade });
+        }
+
+        atualizarBadge(quantidade);
+
+        alert(`${titulo} foi adicionado ao carrinho com sucesso!`);
+        fecharModal();
+    }
+
+    // Função para atualizar a badge com a quantidade total de itens no carrinho
+    function atualizarBadge(quantidadeAdicionada) {
+        quantidadeNoCarrinho += quantidadeAdicionada; // Incrementa a quantidade total
+        document.getElementById('badge').textContent = quantidadeNoCarrinho; // Atualiza a badge
+    };
+    }
