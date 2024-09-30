@@ -107,4 +107,3 @@ function validarFormulario() {
         quantidadeNoCarrinho += quantidadeAdicionada; // Incrementa a quantidade total
         document.getElementById('badge').textContent = quantidadeNoCarrinho; // Atualiza a badge
     };
-    
