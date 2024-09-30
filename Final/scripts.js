@@ -33,7 +33,7 @@ function validarFormulario() {
     // Se todos os campos forem válidos
     if (valid) {
         document.getElementById('mensagem-sucesso').style.display = 'block';
-        return true; 
+        return false; 
     } else {
         document.getElementById('mensagem-erro').style.display = 'block';
         return false; 
@@ -57,7 +57,7 @@ function validarNewsletter() {
     } else {
         document.querySelector('.email-error').innerText = ''; // Limpa mensagem de erro
         document.getElementById('mensagem-sucesso').style.display = 'block'; // Exibe mensagem de sucesso
-        return true; // Impede o envio real do formulário (para testes)
+        return false; // Impede o envio real do formulário (para testes)
     }
 }
 
