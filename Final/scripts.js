@@ -33,11 +33,7 @@ function validarFormulario() {
     // Se todos os campos forem válidos
     if (valid) {
         document.getElementById('mensagem-sucesso').style.display = 'block';
-<<<<<<< HEAD
-        return false; 
-=======
         return false; // Impede o envio real do formulário
->>>>>>> f83f220bfd5c4d2ca8037a2f54de65855f712c50
     } else {
         document.getElementById('mensagem-erro').style.display = 'block';
         return false; // Impede o envio real do formulário
@@ -63,7 +59,7 @@ function validarFormulario() {
         document.getElementById('mensagem-sucesso').style.display = 'block'; // Exibe mensagem de sucesso
         return false; // Impede o envio real do formulário (para testes)
     }
-
+    }
 
     let carrinho = [];
     let quantidadeNoCarrinho = 0;
@@ -111,4 +107,4 @@ function validarFormulario() {
         quantidadeNoCarrinho += quantidadeAdicionada; // Incrementa a quantidade total
         document.getElementById('badge').textContent = quantidadeNoCarrinho; // Atualiza a badge
     };
-    }
+    
