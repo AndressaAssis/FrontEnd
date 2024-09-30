@@ -33,7 +33,11 @@ function validarFormulario() {
     // Se todos os campos forem válidos
     if (valid) {
         document.getElementById('mensagem-sucesso').style.display = 'block';
+<<<<<<< HEAD
+        return false; 
+=======
         return false; // Impede o envio real do formulário
+>>>>>>> f83f220bfd5c4d2ca8037a2f54de65855f712c50
     } else {
         document.getElementById('mensagem-erro').style.display = 'block';
         return false; // Impede o envio real do formulário
@@ -47,18 +51,17 @@ function validarFormulario() {
         // Reseta a mensagem de sucesso
         document.getElementById('mensagem-sucesso').style.display = 'none';
 
-        // Valida o email
-        if (email === "") {
-            document.querySelector('.email-error').innerText = 'Erro: Por favor, preencha o e-mail.';
-            return false; // Impede o envio do formulário
-        } else if (!emailPattern.test(email)) {
-            document.querySelector('.email-error').innerText = 'Erro: Por favor, insira um e-mail válido.';
-            return false; // Impede o envio do formulário
-        } else {
-            document.querySelector('.email-error').innerText = ''; // Limpa mensagem de erro
-            document.getElementById('mensagem-sucesso').style.display = 'block'; // Exibe mensagem de sucesso
-            return false; // Impede o envio real do formulário (para testes)
-        }
+    // Valida o email
+    if (email === "") {
+        document.querySelector('.email-error').innerText = 'Erro: Por favor, preencha o e-mail.';
+        return false; // Impede o envio do formulário
+    } else if (!emailPattern.test(email)) {
+        document.querySelector('.email-error').innerText = 'Erro: Por favor, insira um e-mail válido.';
+        return false; // Impede o envio do formulário
+    } else {
+        document.querySelector('.email-error').innerText = ''; // Limpa mensagem de erro
+        document.getElementById('mensagem-sucesso').style.display = 'block'; // Exibe mensagem de sucesso
+        return false; // Impede o envio real do formulário (para testes)
     }
 
 
@@ -108,3 +111,4 @@ function validarFormulario() {
         quantidadeNoCarrinho += quantidadeAdicionada; // Incrementa a quantidade total
         document.getElementById('badge').textContent = quantidadeNoCarrinho; // Atualiza a badge
     };
+    }
