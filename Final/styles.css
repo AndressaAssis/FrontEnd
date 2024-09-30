@@ -142,7 +142,6 @@ body {
     background-color: #0407b3;
 }
 
-<<<<<<< HEAD
 .email-newsletter button { 
     display: inline-block; /* Permite que o botão seja centralizado */
     margin-top: 10px; /* Espaço entre o input e o botão */
@@ -154,7 +153,8 @@ body {
     margin: 40px auto; /* Alinha a seção ao centro horizontalmente */
     width: 100%; /* Permite que a seção ocupe toda a largura disponível */
     max-width: 400px; /* Limita a largura máxima da seção */
-=======
+}
+
 /* Seção de newsletter */
 .email-newsletter button { 
     display: inline-block; 
@@ -167,7 +167,6 @@ body {
     margin: 40px auto; 
     width: 100%; 
     max-width: 400px; 
->>>>>>> c9978e6b5a6051295417e681807109262e256066
 }
 
 .email-newsletter h2 {
