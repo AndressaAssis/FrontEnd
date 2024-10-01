@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos</title>
+    <title>Faça o seu</title>
 
     <script src="https://kit.fontawesome.com/b8b879b1ec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
@@ -14,13 +14,13 @@
     <!-- Cabeçalho com logo e navegação -->
     <header>
         <div class="logo">
-            <a href="Principal.html">
+            <a href="MAIN.html">
                 <img src="assets/Serratec.png" alt="Logo da Loja">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="MAIN.html">Início</a></li>
+                <li><a href="Produtos.html">Início</a></li>
                 <li><a href="Produtos.html">Camisetas</a></li>
                 <li><a href="FacaOseu.html">Faça o seu</a></li>
                 <li><a href="Vendedores.html">Vendedores</a></li>
@@ -43,8 +43,8 @@
     </header>
      
      <!-- Contato -->
-     <div class="form-container">
-        <h2>Formulário de contato</h2>
+     <div class="faca-container">
+        <h2>Personalize sua Camiseta!</h2>
         
         <form id="contato-form" action="" method="post" onsubmit="return validarFormulario()">
          <div>
@@ -58,24 +58,34 @@
             <span class="error" id="erro-email"></span>
          </div>
          <div>
-            <label for="duvida">Dúvida: </label>
+            <label for="celular">Celular: </label>
+            <input type="tel" name="celular" id="celular" placeholder="Digite seu telefone de contato" required/>
+            <span class="error" id="erro-numero"></span>
+         </div>
+         <div>
+            <label for="imagem">Envie a imagem da estampa:</label>
+            <input type="file" name="imagem" id="imagem" accept="image/*" required />
+            <span class="error" id="erro-imagem"></span>
+        </div>
+         <div>
+            <label for="duvida">Observação: </label>
             <textarea name="duvida" id="duvida" placeholder="Como podemos lhe ajudar?" rows="4" required></textarea>
             <span class="error" id="erro-duvida"></span>
         </div>
         <div>
             <input type="checkbox" name="aceito" value="sim" id="aceito" />
-            <label for="aceito">Eu aceito receber contato da loja por email</label>
+            <label for="aceito">Eu aceito receber contato da loja por email caso precise de mais informações.</label>
         </div>
 
         <div>
-            <button type="submit">Enviar</button>
+            <button type="submit">Enviar para o carrinho</button>
         </div>
 
         <div id="mensagem-erro" style="display:none; color: red; font-weight: bold; margin-top: 10px;">
             Ocorreu um erro ao enviar o formulário. Por favor, verifique os campos e tente novamente.
         </div>
         <div id="mensagem-sucesso" style="display:none; color: green; font-weight: bold; margin-top: 10px;">
-            Formulário enviado com sucesso!
+            Produto enviado com sucesso!
         </div>
         
         </form>
