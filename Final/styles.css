@@ -715,6 +715,8 @@ nav a:hover {
         padding: 12px 20px;
         font-size: 18px;
     }
+
+   
 }
 
 @media (max-width: 767px) {
@@ -738,5 +740,30 @@ nav a:hover {
         text-align: center;
     }
 
+    header {
+        display: flex;
+        flex-direction: column;
+    }
     
+    .navbar {
+        display: none;
+    }
+
+    .cart-area {
+        margin-top: 10px;
+    }
+
+    .login-area {
+        margin-top: 10px;
+    }
+
+
+}
+
+@media (max-width: 960px) {
+    .produtos {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }   
 }
