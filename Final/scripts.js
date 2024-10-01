@@ -61,8 +61,7 @@ function validarFormulario() {
     }
     }
 
-    let carrinho = [];
-    let quantidadeNoCarrinho = 0;
+     
 
     // Função para abrir o modal com os detalhes do produto
     function abrirModal(id, titulo, imagem, descricao) {
@@ -79,34 +78,51 @@ function validarFormulario() {
     }
 
     // Função para fechar o modal
-    function fecharModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
-
-    // Função para adicionar o produto ao carrinho
     function adicionarAoCarrinho(id, titulo) {
-        const quantidade = parseInt(document.getElementById('quantidade').value);
-
-        // Verifica se o produto já está no carrinho
+        const quantidadeInput = document.getElementById(`quantidade-${id}`);
+        
+        if (!quantidadeInput) {
+            alert("Campo de quantidade não encontrado!");
+            return;
+        }
+    
+        const quantidade = parseInt(quantidadeInput.value);
+    
+        if (isNaN(quantidade) || quantidade <= 0) {
+            alert("Por favor, insira uma quantidade válida.");
+            return;
+        }
+    
         const produtoExistente = carrinho.find(produto => produto.id === id);
-
         if (produtoExistente) {
             produtoExistente.quantidade += quantidade;
         } else {
             carrinho.push({ id, titulo, quantidade });
         }
-
-        atualizarBadge(quantidade);
-
+    
         alert(`${titulo} foi adicionado ao carrinho com sucesso!`);
+        
+        atualizarBadgeCarrinho();
         fecharModal();
     }
-
-    // Função para atualizar a badge com a quantidade total de itens no carrinho
-    function atualizarBadge(quantidadeAdicionada) {
-        quantidadeNoCarrinho += quantidadeAdicionada; // Incrementa a quantidade total
-        document.getElementById('badge').textContent = quantidadeNoCarrinho; // Atualiza a badge
-    };
+    
+    function atualizarBadgeCarrinho() {
+        const badge = document.getElementById('badge');
+    
+        if (!badge) {
+            console.error("Badge não encontrado!");
+            return;
+        }
+    
+        const totalItens = carrinho.reduce((total, produto) => total + produto.quantidade, 0);
+        badge.textContent = totalItens;
+        
+        console.log(`Badge atualizado para: ${totalItens}`);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        atualizarBadgeCarrinho();
+    });
 
     //botão abaixo
 
