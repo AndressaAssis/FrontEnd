@@ -15,7 +15,7 @@
      <header>
         <div class="logo">
             <a href="MAIN.html">
-                <img src="assets/logo.png" alt="Logo da Loja">
+                <img src="assets/Serratec.png" alt="Logo da Loja">
             </a>
         </div>
         <nav>
@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="cart-area">
-                <a href="#carrinho">
+                <a href="javascript:void(0);" onclick="abrirCarrinho()">
                     CARRINHO <i class="fa-solid fa-basket-shopping"></i>
                     <span id="badge" class="badge">0</span>
                 </a>
@@ -104,6 +104,26 @@
         <button id="adicionar-carrinho">Adicionar ao Carrinho</button>
     </div>
 </div>
+
+<div class="modal" id="modal-carrinho" style="display: none;">
+    <div class="modal-content" id="modal-content-carrinho">
+        <h2>Itens no Carrinho</h2>
+        <ul id="lista-carrinho"></ul>
+        <button onclick="fecharCarrinho()">Fechar Carrinho</button>
+    </div>
+</div>
+
+<!-- Modal de Detalhes do Produto -->
+<div class="modal" id="modal">
+    <div class="modal-content" id="modal-content">
+        <button class="close" onclick="fecharModal()">&times;</button>
+        <img id="modal-img" src="" alt="Produto">
+        <h2 id="modal-titulo"></h2>
+        <p id="modal-descricao"></p>
+        <button id="adicionar-carrinho">Adicionar ao Carrinho</button>
+    </div>
+</div>
+
 <script>
     let carrinho = [];
 
@@ -141,6 +161,29 @@
 
         alert(`${titulo} foi adicionado ao carrinho com sucesso!`);
         fecharModal();
+    }
+    function abrirCarrinho() {
+        const listaCarrinho = document.getElementById('lista-carrinho');
+        listaCarrinho.innerHTML = ''; // Limpa a lista antes de mostrar
+
+        // Verifica se o carrinho está vazio
+        if (carrinho.length === 0) {
+            listaCarrinho.innerHTML = '<li>O carrinho está vazio.</li>';
+        } else {
+            // Lista todos os produtos do carrinho
+            carrinho.forEach(produto => {
+                const item = document.createElement('li');
+                item.innerText = `${produto.titulo} - Qtd: ${produto.quantidade}`;
+                listaCarrinho.appendChild(item);
+            });
+        }
+
+        document.getElementById('modal-carrinho').style.display = 'flex';
+    }
+
+    // Função para fechar o popup do carrinho
+    function fecharCarrinho() {
+        document.getElementById('modal-carrinho').style.display = 'none';
     }
 </script>
       <!-- Rodapé -->
